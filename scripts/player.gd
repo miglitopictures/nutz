@@ -1,12 +1,15 @@
 class_name Player
 extends CharacterBody2D
 
-const SPEED : float = 100.0
+const SPEED : float = 50.0
 
 var isActive := false
+@onready var active_marker: ColorRect = $ActiveMarker
 
 func _physics_process(_delta: float) -> void:
 	if isActive:
+		active_marker.visible = true
+		
 		# rotate towards mouse
 		look_at(get_global_mouse_position())
 		
@@ -20,3 +23,5 @@ func _physics_process(_delta: float) -> void:
 			velocity.x = 0
 			velocity.y = 0
 		move_and_slide()
+	else:
+		active_marker.visible = false

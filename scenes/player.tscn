@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://ck1j0dc4rp3q5"]
 
-[ext_resource type="Script" uid="uid://cxdpmfjc6us6i" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cxdpmfjc6us6i" path="res://scripts/player.gd" id="1_4flbx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6qbq8"]
+radius = 5.0
+height = 20.05
 
 [sub_resource type="Gradient" id="Gradient_4flbx"]
 offsets = PackedFloat32Array(0.006134969, 1)
@@ -10,8 +12,9 @@ colors = PackedColorArray(0.18000486, 0.18000486, 0.18000486, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mb8qb"]
 gradient = SubResource("Gradient_4flbx")
-width = 20
-height = 30
+width = 10
+height = 20
+use_hdr = true
 
 [node name="Player" type="CharacterBody2D" unique_id=307509862]
 script = ExtResource("1_4flbx")
@@ -22,3 +25,12 @@ debug_color = Color(0.9882353, 0, 0.6156863, 0.70980394)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1586424858]
 texture = SubResource("GradientTexture2D_mb8qb")
+
+[node name="ActiveMarker" type="ColorRect" parent="." unique_id=1414765541]
+visible = false
+offset_left = -2.0
+offset_top = -4.0
+offset_right = 38.0
+offset_bottom = 36.0
+scale = Vector2(0.09038591, 0.22327696)
+color = Color(1, 0, 0, 1)
