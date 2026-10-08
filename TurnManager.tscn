@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://tde25l3bqajc"]
+
+[ext_resource type="Script" uid="uid://b08aavltrljni" path="res://turn_manager.gd" id="1_dkwta"]
+
+[node name="TurnManager" type="Node" unique_id=188452967]
+script = ExtResource("1_dkwta")
+
+[node name="Timer" type="Timer" parent="." unique_id=374032575]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
