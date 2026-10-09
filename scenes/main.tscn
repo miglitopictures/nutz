@@ -56,4 +56,5 @@ players = [NodePath("../Player1"), NodePath("../Player2"), NodePath("../Player3"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1705022106]
 position_smoothing_enabled = true
+position_smoothing_speed = 2.0
 script = ExtResource("6_tefeu")
