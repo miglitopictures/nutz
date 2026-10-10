@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponResosurce" format=3 uid="uid://kgkj2v7ea4nt"]
+
+[ext_resource type="Script" uid="uid://dd5pw36c3pxgq" path="res://scripts/WeaponResource.gd" id="1_xy5lv"]
+[ext_resource type="Texture2D" uid="uid://fghbujiewfv0" path="res://icon.svg" id="2_rthd0"]
+
+[resource]
+script = ExtResource("1_xy5lv")
+texture = ExtResource("2_rthd0")
+damage = 10
+metadata/_custom_type_script = "uid://dd5pw36c3pxgq"

@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://d4hy427c1l6r1"]
 
 [ext_resource type="PackedScene" uid="uid://ck1j0dc4rp3q5" path="res://scenes/player.tscn" id="1_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://tde25l3bqajc" path="res://scenes/TurnManager.tscn" id="2_tefeu"]
+[ext_resource type="FontFile" uid="uid://bk1ypgyf5372s" path="res://assets/fonts/Acme 9 Regular Bold Xtnd.ttf" id="2_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://tde25l3bqajc" path="res://scenes/turnManager.tscn" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://60ferq7o18ps" path="res://scripts/debug/debug_ui.gd" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://kc3nt865m308" path="res://scripts/debug/timer_label.gd" id="4_tipki"]
 [ext_resource type="Script" uid="uid://o68lrw66tnuw" path="res://scripts/debug/current_player_label.gd" id="5_85g3d"]
-[ext_resource type="Script" uid="uid://b1bmoc2ddw4fx" path="res://scenes/camera_2d.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://b1bmoc2ddw4fx" path="res://scripts/camera_2d.gd" id="6_tefeu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
-font_size = 11
+font = ExtResource("2_o6xl0")
+font_size = 6
 
 [node name="Battlefield" type="Node2D" unique_id=1643642390]
 
@@ -33,28 +35,26 @@ turn_manager = NodePath("../../../TurnManager")
 [node name="CurrentPlayerLabel" type="Label" parent="Debug UI/Debug Labels" unique_id=1979300281 node_paths=PackedStringArray("turn_manager")]
 texture_filter = 2
 layout_mode = 2
-text = "Player Lbel"
+text = "Player Label"
 label_settings = SubResource("LabelSettings_1bvp3")
 script = ExtResource("5_85g3d")
 turn_manager = NodePath("../../../TurnManager")
 
 [node name="Player3" parent="." unique_id=307509862 instance=ExtResource("1_tbgi4")]
 position = Vector2(99.00001, 118.99998)
-rotation = -0.9803659
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Player2" parent="." unique_id=1521474295 instance=ExtResource("1_tbgi4")]
 position = Vector2(220, 100)
-rotation = -2.5472212
 
 [node name="Player1" parent="." unique_id=1740798139 instance=ExtResource("1_tbgi4")]
 position = Vector2(51, 43)
-rotation = 0.7230626
 
 [node name="TurnManager" parent="." unique_id=188452967 node_paths=PackedStringArray("players") instance=ExtResource("2_tefeu")]
 players = [NodePath("../Player1"), NodePath("../Player2"), NodePath("../Player3")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1705022106]
+position = Vector2(144, 81)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("6_tefeu")

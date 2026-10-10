@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dk2sobvia5vem"]
+
+[ext_resource type="Texture2D" uid="uid://bf1kyrcuhald8" path="res://assets/sprites/w1.png" id="1_2og4f"]
+[ext_resource type="Script" uid="uid://gj5bo0ohdkgf" path="res://scripts/weapon.gd" id="1_jkuln"]
+
+[node name="Weapon" type="Node2D" unique_id=1417514823]
+script = ExtResource("1_jkuln")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1297685456]
+position = Vector2(-6, 2)
+texture = ExtResource("1_2og4f")

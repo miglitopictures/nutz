@@ -1,30 +1,40 @@
 [gd_scene format=3 uid="uid://ck1j0dc4rp3q5"]
 
 [ext_resource type="Script" uid="uid://cxdpmfjc6us6i" path="res://scripts/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dd5pw36c3pxgq" path="res://scripts/WeaponResource.gd" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://t1loyetkaga3" path="res://assets/sprites/orangeman.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cbu2v3ssklnrg" path="res://assets/sprites/hand.png" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://dk2sobvia5vem" path="res://scenes/weapon.tscn" id="4_qlg0r"]
+[ext_resource type="FontFile" uid="uid://bk1ypgyf5372s" path="res://assets/fonts/Acme 9 Regular Bold Xtnd.ttf" id="6_tuyoq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6qbq8"]
-radius = 5.0
-height = 20.05
+[sub_resource type="Resource" id="Resource_qhqgy"]
+script = ExtResource("2_g2els")
+metadata/_custom_type_script = "uid://dd5pw36c3pxgq"
 
-[sub_resource type="Gradient" id="Gradient_4flbx"]
-offsets = PackedFloat32Array(0.006134969, 1)
-colors = PackedColorArray(0.18000486, 0.18000486, 0.18000486, 1, 1, 1, 1, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tefeu"]
+radius = 16.03122
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mb8qb"]
-gradient = SubResource("Gradient_4flbx")
-width = 10
-height = 20
-use_hdr = true
+[sub_resource type="LabelSettings" id="LabelSettings_6qbq8"]
+font = ExtResource("6_tuyoq")
+font_size = 6
 
 [node name="Player" type="CharacterBody2D" unique_id=307509862]
 script = ExtResource("1_4flbx")
+selectedWeapon = SubResource("Resource_qhqgy")
+
+[node name="BodySprite2D" type="Sprite2D" parent="." unique_id=1586424858]
+texture = ExtResource("3_qhqgy")
+
+[node name="Hand" type="Sprite2D" parent="." unique_id=2016301910]
+texture = ExtResource("4_dqkch")
+offset = Vector2(23, 3.5)
+
+[node name="Weapon" parent="Hand" unique_id=1417514823 instance=ExtResource("4_qlg0r")]
+position = Vector2(34, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=373144924]
-shape = SubResource("CapsuleShape2D_6qbq8")
-debug_color = Color(0.9882353, 0, 0.6156863, 0.70980394)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1586424858]
-texture = SubResource("GradientTexture2D_mb8qb")
+shape = SubResource("CircleShape2D_tefeu")
+debug_color = Color(0.99, 0, 0.61050016, 0.23529412)
 
 [node name="ActiveMarker" type="ColorRect" parent="." unique_id=1414765541]
 visible = false
@@ -33,4 +43,14 @@ offset_top = -4.0
 offset_right = 38.0
 offset_bottom = 36.0
 scale = Vector2(0.09038591, 0.22327696)
-color = Color(1, 0, 0, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="HpLabel" type="Label" parent="." unique_id=383988898]
+offset_left = -10.0
+offset_top = -28.0
+offset_right = 10.0
+offset_bottom = -18.0
+text = "100"
+label_settings = SubResource("LabelSettings_6qbq8")
+horizontal_alignment = 2
+vertical_alignment = 2
